@@ -11,6 +11,7 @@ volumes:
 
 services:
     nginx:
+        restart: unless-stopped
         build:
             context: .
             dockerfile: docker/nginx/Dockerfile
@@ -29,6 +30,7 @@ services:
           - 80:80
 
     uwsgi:
+        restart: unless-stopped
         build:
             context: .
             dockerfile: docker/uwsgi/Dockerfile
@@ -42,6 +44,7 @@ services:
           - REDIS_HOST=redis
 
     redis:
+        restart: unless-stopped
         image: redis:alpine
         volumes:
           - ./storage/redis:/data
