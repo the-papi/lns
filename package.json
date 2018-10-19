@@ -1,0 +1,28 @@
+{
+  "name": "lns",
+  "version": "0.1.0",
+  "description": "URL symlinker (shortener) that insists on simplicity",
+  "main": "gulpfile.js",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify-es": "^1.0.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PapiCZ/lns.git"
+  },
+  "author": "Patrik Janoušek <patrikjanousek97@gmail.com>",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/PapiCZ/lns/issues"
+  },
+  "homepage": "https://github.com/PapiCZ/lns#readme"
+}

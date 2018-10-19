@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='bundle.min.css') }}">
+
+        <title>ln -s: Simple URL shortener</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="container-content">
+                <div class="container-center">
+                    {% if link == 'None' and not errors %}
+                        <div class="text-center">
+                            <img class="full-img" src="{{ url_for('static', filename='blackhole.svg') }}">
+                        </div>
+                    {% elif link and not errors %}
+                        <div class="container-upper">
+                            <div id="link" class="text-center url">{{ link }}</div>
+                        </div>
+                    {% else %}
+                        <div class="container-upper">
+                            <div class="page-title">ln -s</div>
+                            <div class="page-subtitle">URL
+                                <strike>shortener</strike> symlinker that insists on simplicity
+                            </div>
+                            {% if error %}
+                                <div class="errors">
+                                    <div class="text-center error">{{ error }}</div>
+                                </div>
+                            {% endif %}
+                            <form class="container-form" method="post">
+                                <input type="text" name="url" class="input main" value="{{ url }}" autofocus autocomplete="off" spellcheck="false"><button class="button main">➔</button>
+                            </form>
+
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('static', filename='bundle.min.js') }}"></script>
+    </body>
+</html>
