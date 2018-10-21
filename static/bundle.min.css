@@ -68,9 +68,7 @@ body {
     height: 52px;
     background-color: #37474F;
     font-size: 20pt;
-    padding: 10px;
-    position: relative;
-    top: 1px; }
+    padding: 10px; }
 
 .full-img {
   width: 40%; }
