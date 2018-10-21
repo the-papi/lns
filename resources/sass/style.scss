@@ -1,4 +1,5 @@
 @import "colors";
+@import "variables";
 
 body {
   margin: 0;
@@ -74,8 +75,9 @@ body {
   outline: none;
 
   &.main {
-    background-color: $input-background-color;
     width: 80%;
+    height: $form-height;
+    background-color: $input-background-color;
     font-size: 20pt;
 
     padding: 10px;
@@ -88,10 +90,14 @@ body {
   outline: none;
 
   &.main {
+    height: $form-height;
     background-color: $button-background-color;
     font-size: 20pt;
 
+
     padding: 10px;
+    position: relative;
+    top: 1px;
   }
 }
 

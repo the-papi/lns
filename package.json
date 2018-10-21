@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "URL symlinker (shortener) that insists on simplicity",
   "main": "gulpfile.js",
-  "dependencies": {},
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.4.1"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-browserify": "^0.5.1",

@@ -105,3 +105,6 @@ venv.bak/
 
 # Editors
 .idea/
+
+# npm
+node_modules/
