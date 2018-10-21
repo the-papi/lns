@@ -2,7 +2,7 @@
 ln -s is an open-source ~~shortener~~ symlinker that insists on simplicity.
 
 ## Installation
-I highly recommend running lns via docker-compose. Just follow these steps:
+I highly recommend running ln -s via docker-compose. Just follow these steps:
  1. Copy `.env.example` to `.env`
  2. If you are in another branch than a master, then run `npm install && gulp build`
  3. Run `docker-compose up -d`
