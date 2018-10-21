@@ -8,7 +8,7 @@ var gulp = require('gulp'),
 gulp.task('sass', function () {
     return gulp.src(['resources/sass/**/*.scss'])
                .pipe(concat('bundle.min.css'))
-               .pipe(sass())
+               .pipe(sass({outputStyle: 'compressed'}))
                .pipe(gulp.dest('static/'))
 });
 
