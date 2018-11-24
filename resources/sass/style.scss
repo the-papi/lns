@@ -1,5 +1,7 @@
 @import "colors";
 @import "variables";
+@import "node_modules/awesome-notifications/src/styles/variables.scss";
+@import "node_modules/awesome-notifications/src/styles/style.scss";
 
 body {
   margin: 0;
@@ -97,8 +99,27 @@ body {
 
     cursor: pointer;
   }
+
+  &.secondary {
+    height: $form-height;
+    background-color: $button-secondary-background-color;
+    font-size: 20pt;
+    padding: 10px;
+
+    cursor: pointer;
+  }
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 0 5px black;
 }
 
 .full-img {
   width: 40%;
+}
+
+.awn-toast.awn-toast-success {
+  background: $notification-color;
+  color: $font-color;
+  border: none;
 }

@@ -24,8 +24,10 @@
                             <img class="full-img" src="{{ url_for('static', filename='blackhole.svg') }}">
                         </div>
                     {% elif link and not errors %}
-                        <div class="container-upper">
-                            <div id="link" class="text-center url">{{ link }}</div>
+                        <div class="container-upper text-center">
+                            <span id="link" class="url">{{ link }}</span>
+                            <button id="copy-to-clipboard" class="button secondary copy-url"><i class="fa fa-copy"></i>
+                            </button>
                         </div>
                     {% else %}
                         <div class="container-upper">

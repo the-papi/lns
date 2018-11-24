@@ -6,6 +6,7 @@ from utils import genereate_random_string, validate_url
 app = Flask(__name__)
 
 r = redis.StrictRedis(os.environ.get('REDIS_HOST', 'localhost'))
+app.url_map.strict_slashes = False
 
 
 @app.route('/', methods=['GET'])

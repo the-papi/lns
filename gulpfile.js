@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify-es').default,
     rename = require('gulp-rename'),
     browserify = require('gulp-browserify'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    babel = require('gulp-babel');;
 
 gulp.task('sass', function () {
     return gulp.src(['resources/sass/**/*.scss'])
@@ -26,6 +27,9 @@ gulp.task('font-awesome', function () {
 gulp.task('js', function () {
     return gulp.src('resources/js/**/*.js')
                .pipe(concat('bundle.js'))
+               .pipe(babel({
+                   presets: ['@babel/env']
+               }))
                .pipe(browserify())
                .pipe(uglify())
                .pipe(rename({suffix: '.min'}))
