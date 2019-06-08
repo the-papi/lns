@@ -1,10 +1,6 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
-    uglify = require('gulp-uglify-es').default,
-    rename = require('gulp-rename'),
-    browserify = require('gulp-browserify'),
-    sass = require('gulp-sass'),
-    babel = require('gulp-babel');;
+    sass = require('gulp-sass');
 
 gulp.task('sass', function () {
     return gulp.src(['resources/sass/**/*.scss'])
@@ -24,14 +20,4 @@ gulp.task('font-awesome', function () {
     ]).pipe(gulp.dest('static/fonts/font-awesome'))
 });
 
-gulp.task('js', function () {
-    return gulp.src('resources/js/**/*.js')
-               .pipe(concat('bundle.js'))
-               .pipe(babel({presets: ['es2015']}))
-               .pipe(browserify())
-               .pipe(uglify())
-               .pipe(rename({suffix: '.min'}))
-               .pipe(gulp.dest('static/'));
-});
-
-gulp.task('build', ['sass', 'js', 'font-awesome'])
+gulp.task('build', gulp.parallel('sass', 'font-awesome'));
