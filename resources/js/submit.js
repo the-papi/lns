@@ -38,7 +38,6 @@ if (form) {
 }
 
 window.addEventListener('popstate', function(e) {
-    console.log(e)
     if (!e.state) {
         location.reload();
     }
