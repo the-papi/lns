@@ -17,7 +17,6 @@ function copyToClipboard(elementId) {
 };
 
 export function initCopyToClipboard() {
-    console.log('ahoj')
     let copyToClipboardButton = document.getElementById('copy-to-clipboard')
 
     if (copyToClipboardButton) {
@@ -28,4 +27,4 @@ export function initCopyToClipboard() {
     }
 }
 
-
+initCopyToClipboard();
