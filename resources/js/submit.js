@@ -7,6 +7,7 @@ if (form) {
     form.addEventListener('submit', (e) => {
         let xhr = new XMLHttpRequest();
         let url = document.getElementById("url").value
+        e.preventDefault();
 
         xhr.open('POST', '/');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
@@ -29,8 +30,6 @@ if (form) {
                     selectText('link')
 
                     window.history.pushState("", "", data.data.address_bar);
-
-                    e.preventDefault();
                 }
             }
         };
