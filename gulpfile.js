@@ -27,9 +27,7 @@ gulp.task('font-awesome', function () {
 gulp.task('js', function () {
     return gulp.src('resources/js/**/*.js')
                .pipe(concat('bundle.js'))
-               .pipe(babel({
-                   presets: ['@babel/env']
-               }))
+               .pipe(babel({presets: ['es2015']}))
                .pipe(browserify())
                .pipe(uglify())
                .pipe(rename({suffix: '.min'}))

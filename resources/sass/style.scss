@@ -33,11 +33,23 @@ body {
 }
 
 .container-upper {
-  padding-bottom: 20%;
+  padding-top: 7%;
+}
+
+.container-upper-less {
+  padding-top: 15%;
 }
 
 .container-form {
   text-align: center;
+}
+
+.container-max-height {
+  height: 100%;
+}
+
+.hidden {
+  display: none;
 }
 
 .page-title {

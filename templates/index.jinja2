@@ -18,19 +18,19 @@
     <body>
         <div class="container">
             <div class="container-content">
-                <div class="container-center">
+                <div class="container-center container-max-height">
                     {% if link == 'None' and not errors %}
                         <div class="text-center">
                             <img class="full-img" src="{{ url_for('static', filename='blackhole.svg') }}">
                         </div>
                     {% elif link and not errors %}
-                        <div class="container-upper text-center">
+                        <div class="container-upper-less text-center">
                             <span id="link" class="url">{{ link }}</span>
                             <button id="copy-to-clipboard" class="button secondary copy-url"><i class="fa fa-copy"></i>
                             </button>
                         </div>
                     {% else %}
-                        <div class="container-upper">
+                        <div id="short-link-form-wrapper" class="container-upper">
                             <div class="page-title">ln -s</div>
                             <div class="page-subtitle">URL
                                 <strike>shortener</strike> symlinker that insists on simplicity
@@ -40,10 +40,16 @@
                                     <div class="text-center error">{{ error }}</div>
                                 </div>
                             {% endif %}
-                            <form class="container-form" method="post">
-                                <input type="text" name="url" class="input main" value="{{ url }}" autofocus autocomplete="off" spellcheck="false"><button type="submit" class="button main create-url"><i class="fas fa-arrow-right"></i></button>
+                            <form id="short-link-form" class="container-form" method="post">
+                                <input type="text" name="url" id="url" class="input main" value="{{ url }}" autofocus autocomplete="off" spellcheck="false"><button type="submit" class="button main create-url"><i class="fas fa-arrow-right"></i></button>
                             </form>
-
+                        </div>
+                        <div id="shortened-link-template" class="hidden">
+                            <div class="container-upper-less text-center">
+                                <span class="url">hovno</span>
+                                <button class="button secondary copy-url"><i class="fa fa-copy"></i>
+                                </button>
+                            </div>
                         </div>
                     {% endif %}
                 </div>

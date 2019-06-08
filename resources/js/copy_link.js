@@ -1,4 +1,4 @@
-import AWN from "awesome-notifications"
+import AWN from 'awesome-notifications'
 
 var options = {
     position: 'top-right'
@@ -16,8 +16,16 @@ function copyToClipboard(elementId) {
     document.body.removeChild(element);
 };
 
-document.getElementById('copy-to-clipboard')
-        .addEventListener('click', () => {
+export function initCopyToClipboard() {
+    console.log('ahoj')
+    let copyToClipboardButton = document.getElementById('copy-to-clipboard')
+
+    if (copyToClipboardButton) {
+        copyToClipboardButton.addEventListener('click', () => {
             notifier.success('Copied!');
             copyToClipboard('link');
         });
+    }
+}
+
+
