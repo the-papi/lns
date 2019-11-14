@@ -39,6 +39,9 @@ def show(uid):
 def store():
     url = request.form['url']
 
+    import logging
+    logging.error(request.form)
+
     wants_json = request.headers['Accept'] == 'application/json'
 
     if url is not None and len(url) > 0:

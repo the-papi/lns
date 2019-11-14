@@ -33,7 +33,8 @@ if (form) {
                 }
             }
         };
-        xhr.send(encodeURI('url=' + url));
+
+        xhr.send('url=' + encodeURIComponent(url));
     });
 }
 
