@@ -108,5 +108,3 @@ venv.bak/
 
 # npm
 node_modules/
-
-storage/
