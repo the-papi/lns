@@ -12,10 +12,10 @@ jobs:
       - checkout
       - docker/install-docker-compose
       - run:
-          command: docker-compose up -d
+          command: docker-compose -f docker-compose.circleci.yml up -d
           name: Start
       - run:
-          command: docker-compose exec gunicorn ./manage.py test
+          command: docker-compose -f docker-compose.circleci.yml exec gunicorn ./manage.py test
           name: Test
 
 workflows:
