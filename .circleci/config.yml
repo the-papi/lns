@@ -8,6 +8,7 @@ jobs:
     executor: docker/machine
     machine: true
     working_directory: ~/repo
+    resource_class: small
     steps:
       - checkout
       - docker/install-docker-compose
