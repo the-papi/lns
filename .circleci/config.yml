@@ -8,6 +8,8 @@ jobs:
     executor: docker/machine
     working_directory: ~/repo
     steps:
+      - checkout
+      - docker/install-docker-compose
       - run:
           command: docker-compose -f docker-compose.circleci.yml up -d
           name: Start
