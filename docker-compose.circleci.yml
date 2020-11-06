@@ -1,0 +1,40 @@
+version: '3.7'
+
+networks:
+    application:
+    web:
+
+services:
+    nginx:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: docker/dev/nginx/Dockerfile
+        networks:
+            - web
+        ports:
+            - 80:80
+
+    gunicorn:
+        restart: unless-stopped
+        build:
+            context: .
+            dockerfile: docker/dev/gunicorn/Dockerfile
+        environment:
+            SECRET_KEY: "${SECRET_KEY}"
+            DB_NAME: "${DB_NAME}"
+            DB_USER: "${DB_USER}"
+            DB_PASSWORD: "${DB_PASSWORD}"
+        networks:
+            - web
+            - application
+
+    postgres:
+        image: postgres:13
+        restart: unless-stopped
+        environment:
+            POSTGRES_DB: "${DB_NAME}"
+            POSTGRES_USER: "${DB_USER}"
+            POSTGRES_PASSWORD: "${DB_PASSWORD}"
+        networks:
+            - application
