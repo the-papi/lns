@@ -13,6 +13,11 @@ jobs:
       - run:
           command: docker-compose -f docker-compose.circleci.yml build
           name: Build
+      - run:
+          command: |
+            docker save lns_gunicorn -o lns_gunicorn.tar
+            docker save lns_nginx -o lns_nginx.tar
+          name: Save
       - persist_to_workspace:
           root: .
           paths:
@@ -22,6 +27,13 @@ jobs:
     executor: docker/machine
     working_directory: ~/repo
     steps:
+      - attach_workspace:
+          at: .
+      - run:
+          command: |
+            docker load lns_gunicorn -i lns_gunicorn.tar
+            docker load lns_nginx -i lns_nginx.tar
+          name: Save
       - run:
           command: docker-compose -f docker-compose.circleci.yml up -d
           name: Start
@@ -32,7 +44,7 @@ jobs:
           name: Test
 
 workflows:
-  build_run_and_test:
+  build_and_test:
     jobs:
       - build
       - test:
