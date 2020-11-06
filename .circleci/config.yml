@@ -14,18 +14,13 @@ jobs:
           command: docker-compose -f docker-compose.circleci.yml build
           name: Build
 
-  run:
-      executor: docker/machine
-      working_directory: ~/repo
-      steps:
-        - run:
-            command: docker-compose -f docker-compose.circleci.yml up -d
-            name: Build
-
   test:
     executor: docker/machine
     working_directory: ~/repo
     steps:
+      - run:
+          command: docker-compose -f docker-compose.circleci.yml up -d
+          name: Start
       - run:
           command: |
               docker-compose -f docker-compose.circleci.yml exec gunicorn ./manage.py test \
@@ -36,5 +31,6 @@ workflows:
   build_run_and_test:
     jobs:
       - build
-      - run
-      - test
+      - test:
+          requires:
+            - build
