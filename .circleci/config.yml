@@ -16,7 +16,7 @@ jobs:
           name: Start
       - run:
           command: |
-            docker-compose -f docker-compose.circleci.yml exec gunicorn ./manage.py test
+            docker-compose -f docker-compose.circleci.yml exec gunicorn ./manage.py test \
               symlinker
           name: Test
 
