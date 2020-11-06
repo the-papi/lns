@@ -108,3 +108,7 @@ venv.bak/
 
 # npm
 node_modules/
+
+# Storages
+storage/
+static/
