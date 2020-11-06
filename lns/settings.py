@@ -72,13 +72,8 @@ DATABASES = {
         'NAME': os.environ['DB_NAME'],
         'USER': os.environ['DB_USER'],
         'PASSWORD': os.environ['DB_PASSWORD'],
-<<<<<<< HEAD
-        'HOST': os.environ.get('DB_HOST', 'postgres'),
-        'PORT': os.environ.get('DB_PORT', 5432),
-=======
         'HOST': os.getenv('DB_HOST', 'postgres'),
         'PORT': os.getenv('DB_PORT', 5432),
->>>>>>> a6987bc7fa8b1fdcb0b9875e145d155eb4b8201c
     }
 }
 
