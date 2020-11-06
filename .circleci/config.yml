@@ -13,22 +13,24 @@ jobs:
       - run:
           command: docker-compose -f docker-compose.circleci.yml build
           name: Build
+
   run:
       executor: docker/machine
       working_directory: ~/repo
       steps:
-          - run:
+        - run:
             command: docker-compose -f docker-compose.circleci.yml up -d
             name: Build
+
   test:
-      executor: docker/machine
-      working_directory: ~/repo
-      steps:
-          - run:
-              command: |
-                  docker-compose -f docker-compose.circleci.yml exec gunicorn ./manage.py test \
-                    symlinker
-              name: Test
+    executor: docker/machine
+    working_directory: ~/repo
+    steps:
+      - run:
+          command: |
+              docker-compose -f docker-compose.circleci.yml exec gunicorn ./manage.py test \
+                symlinker
+          name: Test
 
 workflows:
   build_run_and_test:
